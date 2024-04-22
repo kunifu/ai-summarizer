@@ -18,6 +18,11 @@ dependencies = [
     "python-dotenv>=1.0.1",
     "clipboard>=0.0.4",
     "slack-sdk>=3.27.1",
+    "playwright>=1.43.0",
+    "playwright-stealth>=1.0.6",
+    "setuptools>=69.5.1",
+    "kaggle>=1.6.12",
+    "injector>=0.21.0",
 ]
 readme = "README.md"
 requires-python = ">= 3.8"
@@ -61,7 +66,7 @@ extend-ignore = [
     "D107", # undocumented-public-init
     "D205", # blank-line-after-summary
     "D415", # ends-in-punctuation
-    "D101", # missing-module-docstring
+    "D100", # missing-module-docstring
     "D101", # missing-module-docstring
     "D102", # missing-module-docstring
 ]
