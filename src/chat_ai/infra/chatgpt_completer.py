@@ -23,7 +23,7 @@ class ChatGPTCompleter(IChatCompleter):
 
     def complete(self, prompt: str) -> str:
         load_dotenv()
-        self.__login(os.getenv("CHAT_GPT_USERNAME"), os.getenv("CHAT_GPT_PASSWORD"))
+        self.__login(os.getenv("CHATGPT_USERNAME"), os.getenv("CHATGPT_PASSWORD"))
         self.__switch_chat("https://chat.openai.com/g/g-pNWGgUYqS-webpilot")
         return self.__interact(prompt)
 
