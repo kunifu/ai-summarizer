@@ -15,7 +15,7 @@ class DocumentSelector(IDocumentSelector):
 
     def select(self) -> str:
         page_num = random.randint(0, 30)
-        page_size = 5
+        page_size = 10
         type = random.choice(["code", "models"])
         url = None
         if type == "code":

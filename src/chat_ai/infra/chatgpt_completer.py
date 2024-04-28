@@ -33,7 +33,7 @@ class ChatGPTCompleter(IChatCompleter):
         self.__page.wait_for_url(chatgpt_url)
         self.__page.wait_for_timeout(1000)
 
-        self.__page.click("//div[text()='Log in']")
+        self.__page.click("//div[text()='Log in'] | //div[text()='ログイン']")
         self.__page.click("//span[text()='Google で続ける']")
         self.__page.wait_for_timeout(1000)
 
@@ -60,8 +60,14 @@ class ChatGPTCompleter(IChatCompleter):
         self.__page.fill("textarea", prompt)
         self.__page.keyboard.press("Enter")
 
-        self.__page.wait_for_selector("//button[@aria-label='Stop generating']", state="visible")
-        self.__page.wait_for_selector("//button[@aria-label='Stop generating']", state="hidden")
+        self.__page.wait_for_selector(
+            "//button[@aria-label='Stop generating'] | //button[@aria-label='生成を中止する']", state="visible"
+        )
+        self.__page.wait_for_selector(
+            "//button[@aria-label='Stop generating'] | //button[@aria-label='生成を中止する']",
+            state="hidden",
+            timeout=0,
+        )
         self.__page.wait_for_selector("//button[@data-testid='send-button']", state="visible")
 
         self.__page.click("//button[text()='Copy code']")
