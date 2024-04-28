@@ -1,25 +1,27 @@
 # ai-summarizer
-ChatGPTを使って、論文を要約＆その内容をSlackに通知するスクリプト。
+Script to summarize text using ChatGPT and notify the contents to Slack.
 
-## インストール
+## Installation
 ```zsh
-rye install ai-summarizer
+rye sync
 ```
 
-## 使い方
+## Usage
 
-### 事前準備
-.env ファイルを作成し、以下の環境変数を設定してください。
+### Required
 
 ```.env
-CHAT_GPT_USERNAME=<your_username>
-CHAT_GPT_PASSWORD=<your_password>
+CHATGPT_USERNAME=<your_username>
+CHATGPT_PASSWORD=<your_password>
 SLACK_WEBHOOK_URL=<your_webhook_url>
 ```
 
-### 定期実行化
-毎日 9 時に実行する場合、以下のように cron を設定してください。
+## Tips
+
+### Run the script periodically
+You can run the script periodically using `cron`.
+
 ```cron
-0 9 * * * /Users/hogehoge/.rye/shims/python /Users/hogehoge/renga/workspace/ai-summarizer/main.py
+0 9 * * * /Users/kunifu/workspace/ai-summarizer/.venv/bin/python /Users/kunifu/workspace/ai-summarizer/main.py
 ```
 
